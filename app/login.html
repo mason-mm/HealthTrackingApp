@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<!-- Login and account creation entry point. -->
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Log in or sign up</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/login.css">
+</head>
+
+<body>
+    <main>
+        <svg class="pulse" viewBox="0 0 400 56" preserveAspectRatio="none" aria-hidden="true">
+            <path d="M0 30 H120 L140 30 L152 6 L170 52 L184 18 L194 30 H400" />
+        </svg>
+        <h1 id="title">Welcome back</h1>
+        <p class="sub" id="sub">Log in to see your health data.</p>
+
+        <div class="card">
+            <div class="tabs" role="tablist">
+                <button class="tab" role="tab" id="tab-login" aria-selected="true" aria-controls="form">Log in</button>
+                <button class="tab" role="tab" id="tab-signup" aria-selected="false" aria-controls="form">Create
+                    account</button>
+            </div>
+
+            <form id="form" novalidate>
+                <div class="row" id="name-fields" hidden>
+                    <label>First name
+                        <input id="firstName" type="text" autocomplete="given-name">
+                    </label>
+                    <label>Last name
+                        <input id="lastName" type="text" autocomplete="family-name">
+                    </label>
+                </div>
+                <label>Email
+                    <input id="email" type="email" autocomplete="email" required>
+                </label>
+                <label>Password
+                    <input id="password" type="password" autocomplete="current-password" required minlength="8">
+                    <span class="hint" id="pw-hint" hidden>Use at least 8 characters.</span>
+                </label>
+                <button class="go" id="submit" type="submit">Log in</button>
+                <p class="msg" id="msg" role="status" aria-live="polite"></p>
+            </form>
+        </div>
+    </main>
+
+    <script type="module" src="js/login.js"></script>
+</body>
+
+</html>

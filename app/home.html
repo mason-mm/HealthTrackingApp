@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<!-- Signed-in account inspection and testing actions. -->
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#173b36">
+    <title>Account inspector - Health Tracker</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/home.css">
+</head>
+
+<body>
+    <header class="topbar">
+        <div class="topbar-inner">
+            <a class="brand" href="home.html" aria-label="Health Tracker account inspector">
+                <span class="brand-mark" aria-hidden="true">HT</span>
+                <span>Health Tracker</span>
+            </a>
+            <span class="topbar-label">Account inspector</span>
+            <button class="button button-light" id="sign-out" type="button">End session</button>
+        </div>
+    </header>
+
+    <main class="page">
+        <div class="page-heading">
+            <div>
+                <p class="eyebrow">TEST WORKSPACE</p>
+                <h1>Account inspector</h1>
+                <p class="lede">Review the signed-in account and authentication details.</p>
+            </div>
+            <button class="button button-outline" id="refresh-account" type="button">Refresh details</button>
+        </div>
+
+        <p class="page-status" id="page-status" role="status" aria-live="polite">Loading account details...</p>
+
+        <section class="account-overview" aria-labelledby="account-name">
+            <div>
+                <p class="eyebrow">SIGNED-IN ACCOUNT</p>
+                <h2 id="account-name">Loading...</h2>
+                <p class="account-email" id="account-email">-</p>
+            </div>
+            <span class="auth-state"><span class="state-dot" aria-hidden="true"></span>Authenticated</span>
+        </section>
+
+        <section class="section" aria-labelledby="identity-heading">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">AUTH</p>
+                    <h2 id="identity-heading">Identity details</h2>
+                </div>
+            </div>
+            <dl class="detail-list">
+                <dt>User ID</dt>
+                <dd class="copy-row"><code id="user-id">-</code><button class="text-button" id="copy-user-id"
+                        type="button">Copy ID</button></dd>
+                <dt>Email</dt>
+                <dd id="user-email">-</dd>
+                <dt>Email confirmed</dt>
+                <dd id="email-confirmed">-</dd>
+                <dt>Phone</dt>
+                <dd id="user-phone">-</dd>
+                <dt>Phone confirmed</dt>
+                <dd id="phone-confirmed">-</dd>
+                <dt>Role and audience</dt>
+                <dd id="user-role">-</dd>
+                <dt>Sign-in providers</dt>
+                <dd id="user-providers">-</dd>
+                <dt>Account created</dt>
+                <dd id="created-at">-</dd>
+                <dt>Last updated</dt>
+                <dd id="updated-at">-</dd>
+                <dt>Last sign-in</dt>
+                <dd id="last-sign-in">-</dd>
+                <dt>Anonymous account</dt>
+                <dd id="is-anonymous">-</dd>
+            </dl>
+        </section>
+
+        <section class="section" aria-labelledby="metadata-heading">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">PROFILE DATA</p>
+                    <h2 id="metadata-heading">Metadata and identities</h2>
+                </div>
+            </div>
+            <details class="data-details">
+                <summary>User record</summary>
+                <pre id="user-record">Loading...</pre>
+            </details>
+            <details class="data-details">
+                <summary>Session details (tokens hidden)</summary>
+                <pre id="session-record">Loading...</pre>
+            </details>
+        </section>
+
+        <section class="section danger-zone" aria-labelledby="delete-heading">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">ACCOUNT ACTIONS</p>
+                    <h2 id="delete-heading">Delete account</h2>
+                </div>
+                <button class="button button-danger" id="delete-account" type="button" disabled
+                    aria-describedby="delete-note">Delete account</button>
+            </div>
+            <p class="delete-note" id="delete-note">Deletion is unavailable in this static app. It needs a trusted
+                server-side Supabase function; an admin key must never be placed in browser code.</p>
+        </section>
+    </main>
+
+    <script type="module" src="js/home.js"></script>
+</body>
+
+</html>
