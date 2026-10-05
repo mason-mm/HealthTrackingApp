@@ -1,5 +1,6 @@
 // Handles login, account creation, and their form states.
 import { signUpUser, signInUser, getCurrentSession } from './authService.js';
+import { getRememberMe, setRememberMe } from './supabaseClient.js';
 
 // HTML file to go to after login
 const AFTER_LOGIN = 'home.html';
@@ -9,7 +10,9 @@ const $ = (id) => document.getElementById(id); // Shorthand for getElementById
 const form = $('form');
 const msg = $('msg');
 const submitBtn = $('submit');
+const rememberMe = $('remember-me');
 let mode = 'login';
+rememberMe.checked = getRememberMe();
 
 // Displays validation, progress, and authentication messages.
 function showMessage(text, type = '') {
@@ -37,6 +40,14 @@ function setMode(next) {
 // Tab Button event listeners
 $('tab-login').addEventListener('click', () => setMode('login'));
 $('tab-signup').addEventListener('click', () => setMode('signup'));
+rememberMe.addEventListener('change', () => {
+  try {
+    setRememberMe(rememberMe.checked);
+  } catch (error) {
+    rememberMe.checked = !rememberMe.checked;
+    showMessage(error.message || 'Could not update the session preference.', 'error');
+  }
+});
 
 // Skip the form and go to the next page if the user is already logged in
 try {

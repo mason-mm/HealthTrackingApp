@@ -52,6 +52,13 @@
                     <input id="password" type="password" autocomplete="current-password" required minlength="8">
                     <span class="hint" id="pw-hint" hidden>Use at least 8 characters.</span>
                 </label>
+                <label class="remember-me" for="remember-me">
+                    <input id="remember-me" type="checkbox" checked>
+                    <span>
+                        <strong>Remember me</strong>
+                        <span class="hint">Stay signed in after closing the browser. Uncheck to end the session when this tab session ends.</span>
+                    </span>
+                </label>
                 <button class="go" id="submit" type="submit">Log in</button>
                 <p class="msg" id="msg" role="status" aria-live="polite"></p>
             </form>
